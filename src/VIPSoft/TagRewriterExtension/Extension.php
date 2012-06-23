@@ -39,7 +39,16 @@ class Extension implements ExtensionInterface
             children()->
                 arrayNode('tags')->
                     useAttributeAsKey('name')->
-                    prototype('variable')->end()->
+                    prototype('variable')->
+                        beforeNormalization()->
+                            ifString()->
+                            then(function ($v) {
+                                return array_map(function($tag){
+                                    return trim($tag);
+                                },  explode(' ', $v));
+                            })->
+                        end()->
+                    end()->
                 end()->
             end()->
         end();

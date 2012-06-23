@@ -44,7 +44,7 @@ class TagRewriterService
             $newTags = array_merge($newTags, array_key_exists($tag, (array) $this->tags) ? (array) $this->tags[$tag] : array($tag));
         }
 
-        $newTags = array_unique(array_filter($newTags));
+        $newTags = array_values(array_unique(array_filter($newTags, 'strlen')));
 
         return count($newTags) ? $newTags : null;
     }

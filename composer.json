@@ -2,7 +2,7 @@
     "name": "vipsoft/tag-rewriter-extension",
     "type": "behat-extension",
     "description": "Tag Rewriter extension for Behat",
-    "keywords": ["behat", "bdd", "gearman", "tag", "gherkin"],
+    "keywords": ["behat", "bdd", "tag", "rewrite", "gherkin"],
     "homepage": "http://github.com/vipsoft/",
     "license": "",
     "authors": [

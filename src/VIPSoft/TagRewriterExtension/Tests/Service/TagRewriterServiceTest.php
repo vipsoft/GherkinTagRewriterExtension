@@ -54,10 +54,22 @@ class TagRewriterServiceTest extends \PHPUnit_Framework_TestCase
                 array('javascript'), array('javascript' => array('replace')), array('replace'),
             ),
             array(
+                array('javascript'), array('javascript' => 'replace'), array('replace'),
+            ),
+            array(
                 array('a', 'b'), array('a' => array('c')), array('c', 'b'),
             ),
             array(
                 array('a', 'b'), array('a' => array('b', 'c')), array('b', 'c'),
+            ),
+            array(
+                array('a', 'b'), array('a' => array('b', null, 'c')), array('b', 'c'),
+            ),
+            array(
+                array('a', 'b'), array('a' => array('b', '', 'c')), array('b', 'c'),
+            ),
+            array(
+                array('a', 'b'), array('a' => array('b', '0', 'c')), array('b', '0', 'c'),
             ),
             array(
                 array('javascript'), array('javascript' => array('javascript', 'add')), array('javascript', 'add'),
