@@ -1,0 +1,28 @@
+<?xml version="1.0" ?>
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="behat.tagrewriter.tags"></parameter>
+
+        <parameter key="gherkin.lexer.class">VIPSoft\TagRewriterExtension\Gherkin\Lexer</parameter>
+        <parameter key="behat.tagrewriter.service.tagrewriter.class">VIPSoft\TagRewriterExtension\Service\TagRewriterService</parameter>
+    </parameters>
+
+    <services>
+        <service id="gherkin.lexer" class="%gherkin.lexer.class%">
+            <argument type="service" id="gherkin.keywords" />
+            <call method="setContainer">
+                <argument type="service" id="service_container" />
+            </call>
+        </service>
+
+        <service id="behat.tagrewriter.service.tagrewriter" class="%behat.tagrewriter.service.tagrewriter.class%">
+            <call method="setTags">
+                <argument>%behat.tagrewriter.tags%</argument>
+            </call>
+        </service>
+    </services>
+
+</container>

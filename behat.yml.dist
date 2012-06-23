@@ -1,0 +1,4 @@
+default:
+  extensions:
+    VIPSoft\TagRewriterExtension\Extension:
+      tags: ~
