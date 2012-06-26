@@ -44,29 +44,24 @@ This extension requires:
 
 ## Configuration
 
-To replace a tag, simply don't include the original tag in the set of new tags:
 
-    ``` yaml
+* To replace a tag, simply don't include the original tag in the set of new tags:
+
           tags:
             # replace @xbrowser with @winxpie @firefox @chrome
             xbrowser: winxpie firefox chrome
-    ```
 
-To augment a tag, include the original tag in the set of new tags:
+* To augment a tag, include the original tag in the set of new tags:
 
-    ``` yaml
           tags:
             # augment @javascript with @winxpie @firefox @chrome
             javascript: javascript winxpie firefox chrome
-    ```
 
-To remove a tag, use null:
+* To remove a tag, use null:
 
-    ``` yaml
           tags:
             # remove @javascript
             javascript: ~
-    ```
 
 ## Copyright
 
