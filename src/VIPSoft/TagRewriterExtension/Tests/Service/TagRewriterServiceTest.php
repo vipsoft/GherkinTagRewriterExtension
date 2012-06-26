@@ -1,6 +1,7 @@
 <?php
 /**
  * @copyright 2012 Anthon Pang
+ * @license MIT
  */
 
 namespace VIPSoft\TagRewriterExtension\Tests\Service;
