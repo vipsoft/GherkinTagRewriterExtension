@@ -16,7 +16,7 @@ Through Composer
 ----------------
 1. Set dependencies in your **composer.json**:
 
-::
+.. code-block:: js
 
     {
         "require": {
@@ -27,10 +27,10 @@ Through Composer
 
 2. Install/update your vendors:
 
-::
+.. code-block:: bash
 
-    $> curl http://getcomposer.org/installer | php
-    $> php composer.phar install
+    $ curl http://getcomposer.org/installer | php
+    $ php composer.phar install
 
 Through PHAR
 ------------
@@ -42,7 +42,7 @@ Configuration
 =============
 Activate extension in your **behat.yml** and define your tags:
 
-::
+.. code-block:: yaml
 
     # behat-client.yml
     default:
@@ -55,7 +55,7 @@ Settings
 --------
 * To replace a tag, simply don't include the original tag in the set of new tags:
 
-::
+.. code-block:: yaml
 
           tags:
             # replace @xbrowser with @winxpie @firefox @chrome
@@ -63,7 +63,7 @@ Settings
 
 * To augment a tag, include the original tag in the set of new tags:
 
-::
+.. code-block:: yaml
 
           tags:
             # augment @javascript with @winxpie @firefox @chrome
@@ -71,7 +71,7 @@ Settings
 
 * To remove a tag, use null:
 
-::
+.. code-block:: yaml
 
           tags:
             # remove @javascript

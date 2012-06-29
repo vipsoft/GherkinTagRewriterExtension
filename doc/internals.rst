@@ -6,14 +6,14 @@ This is a walkthrough of how I built
 `GherkinTagRewriterExtension <http://github.com/vipsoft/GherkinTagRewriterExtension/>`_,
 a simple Behat 2.4 extension that rewrites Gherkin tags on-the-fly, such that:
 
-::
+.. code-block:: gherkin
 
     @javascript
     Feature: tags
 
 would be loaded and rewritten (in memory) as if we had written:
 
-::
+.. code-block:: gherkin
 
     @javascript @firefox
     Feature: tags
@@ -42,7 +42,7 @@ an array of replacement tags, or null.
 
 Thus, my ``behat.yml`` file might contain:
 
-::
+.. code-block:: yaml
 
     default:
       extensions:
@@ -62,7 +62,7 @@ Thus, my ``behat.yml`` file might contain:
 To parse and load my configuration, I implement the following methods in
 ``Extension.php``:
 
-::
+.. code-block:: php
 
     public function getConfig(ArrayNodeDefinition $builder)
     {
@@ -90,7 +90,7 @@ passes, so getCompilerPasses() is just a stub method that returns an empty array
 
 Now, I'll create ``services/core.xml`` (and expand it later):
 
-::
+.. code-block:: xml
 
     <?xml version="1.0" ?>
     <container xmlns="http://symfony.com/schema/dic/services"
@@ -122,7 +122,7 @@ Now I check my assumption.  I grep for ``Behat\Gherkin\Lexer`` and (pleasantly)
 find ``vendor/behat/behat/src/Behat/Behat/DependencyInjection/config/behat.xml``
 contains:
 
-::
+.. code-block:: xml
 
     <parameter key="gherkin.lexer.class">Behat\Gherkin\Lexer</parameter>
 
@@ -131,7 +131,7 @@ This means I can override ``gherkin.lexer.class``.  Looking good.
 I create ``src/Gherkin/Lexer.php`` as a subclass of ``Behat\Gherkin\Lexer``, and
 stub the inherited method that I want to override/extend:
 
-::
+.. code-block:: php
 
     protected function scanTags()
     {
@@ -145,7 +145,7 @@ stub the inherited method that I want to override/extend:
 Hang on.  I need to access my configuration parameters.  Please tell me the Lexer
 is a service.  Yes!  I find:
 
-::
+.. code-block:: xml
 
     <service id="gherkin.lexer" class="%gherkin.lexer.class%">
 
@@ -153,7 +153,7 @@ This means we can pass arguments to the constructor, and/or call our own setters
 For the sake of clarity, I add a setContainer() method to ``Lexer.php``.  I then
 add the following parameters and services to ``core.xml``:
 
-::
+.. code-block:: xml
 
         ...
         <parameter key="gherkin.lexer.class">VIPSoft\TagRewriterExtension\Gherkin\Lexer</parameter>
@@ -177,7 +177,7 @@ create a service, ``Service/TawRewriterService.php`` with a rewrite() method.
 Following TDD, I write data-driven unit tests in ``Tests/Service/TagRewriterServiceTest.php``
 and initially code the rewrite() method as:
 
-::
+.. code-block:: php
 
     public function rewrite($tags)
     {
@@ -199,7 +199,7 @@ Fix bug causing test(s) to fail.  Add more tests.  Repeat.
 The cycle continues when I later decide to support a space delimited set of tags,
 as in:
 
-::
+.. code-block:: yaml
 
     default:
       extensions:
@@ -210,7 +210,7 @@ as in:
 
 The refactored final implementation of rewrite():
 
-::
+.. code-block:: php
 
     public function rewrite($tags)
     {
@@ -232,7 +232,7 @@ I have to configure the service and wire up the lexer to use the service.
 
 In ``services/core.xml``, I add:
 
-::
+.. code-block:: xml
 
         ...
         <parameter key="behat.tagrewriter.service.tagrewriter.class">VIPSoft\TagRewriterExtension\Service\TagRewriterService</parameter>
@@ -251,7 +251,7 @@ of ``behat.name_of_extension.service.name_of_service``.
 
 Finally, in ``Gherkin/Lexer.php``, I locate the service and call the rewrite() method:
 
-::
+.. code-block:: php
 
     protected function scanTags()
     {
