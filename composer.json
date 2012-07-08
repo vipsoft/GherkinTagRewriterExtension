@@ -1,6 +1,6 @@
 {
     "name": "vipsoft/tag-rewriter-extension",
-    "type": "behat-extension",
+    "type": "library",
     "description": "Tag Rewriter extension for Behat",
     "keywords": ["behat", "bdd", "tag", "rewrite", "gherkin"],
     "homepage": "http://github.com/vipsoft/",
@@ -11,17 +11,15 @@
             "email": "apang@softwaredevelopment.ca"
         }
     ],
-
     "require": {
-        "php":                      ">=5.3.6",
-        "behat/behat":              ">=2.4.0,<2.5.0-dev",
-        "symfony/framework-bundle": ">=2.0.0,<2.2.0-dev"
+        "php": ">=5.3.6",
+        "behat/behat": ">=2.4.0,<2.5.0",
+        "symfony/config": ">=2.0.0,<2.2.0",
+        "symfony/dependency-injection": ">=2.0.0<2.2.0"
     },
-
     "require-dev": {
         "symfony/symfony": "dev-master"
     },
-
     "autoload": {
         "psr-0": { "VIPSoft\\TagRewriterExtension": "src/" }
     }
