@@ -44,7 +44,7 @@ Activate extension in your **behat.yml** and define your tags:
 
 .. code-block:: yaml
 
-    # behat-client.yml
+    # behat.yml
     default:
       # ...
       extensions:
