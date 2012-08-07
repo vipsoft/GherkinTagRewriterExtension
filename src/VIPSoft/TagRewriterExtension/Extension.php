@@ -46,7 +46,7 @@ class Extension implements ExtensionInterface
                             then(function ($v) {
                                 return array_map(function($tag){
                                     return trim($tag);
-                                },  explode(' ', $v));
+                                }, explode(' ', $v));
                             })->
                         end()->
                     end()->

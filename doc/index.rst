@@ -77,6 +77,10 @@ Settings
             # remove @javascript
             javascript: ~
 
+Source
+======
+`Github <https://github.com/vipsoft/GherkinTagRewriterExtension>`_
+
 Copyright
 =========
 Copyright (c) 2012 Anthon Pang.  See **LICENSE** for details.
@@ -84,3 +88,4 @@ Copyright (c) 2012 Anthon Pang.  See **LICENSE** for details.
 Contributors
 ============
 * Anthon Pang `(robocoder) <http://github.com/robocoder>`_
+* `Others <https://github.com/vipsoft/GherkinTagRewriterExtension/graphs/contributors>`_

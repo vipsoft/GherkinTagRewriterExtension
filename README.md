@@ -6,11 +6,16 @@ Allows Behat to rewrite Gherkin tags at runtime.
 
 [Official documentation](http://extensions.behat.org/tag-rewriter/index.html)
 
+## Source
+
+[Github](https://github.com/vipsoft/GherkinTagRewriterExtension)
+
 ## Copyright
 
 Copyright (c) 2012 Anthon Pang. See LICENSE for details.
 
-## Contributors
+## Credits
 
 * Anthon Pang [robocoder](http://github.com/robocoder)
 * Konstantin Kudryashov [everzet](http://github.com/everzet) - init.php and build.php
+* [Others](https://github.com/vipsoft/GherkinTagRewriterExtension/graphs/contributors)
