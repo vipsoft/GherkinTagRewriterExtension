@@ -4,7 +4,7 @@ Allows Behat to rewrite Gherkin tags at runtime.
 
 ## Documentation
 
-[Official documentation](http://extensions.behat.org/tag-rewriter/index.html)
+[Official documentation](http://extensions.behat.org/gherkin-tag-rewriter/)
 
 ## Source
 
